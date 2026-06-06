@@ -1,13 +1,15 @@
 import { useEffect, useRef, useState } from 'react';
 import SlimeHint from './SlimeHint';
+import AppGrid from './AppGrid';
 
-const NAMES = [
-  'friend!', 'stranger!', 'neighbor!',
+const NAMES_REST = [
   'James!', 'John!', 'Robert!', 'Michael!', 'William!',
   'David!', 'Richard!', 'Joseph!', 'Thomas!', 'Charles!',
-  'Mary!', 'Patricia!', 'Joyanna!', 'Linda!', 'Barbara!',
+  'Mary!', 'Patricia!', 'Joyanna :)', 'Linda!', 'Barbara!',
   'Elizabeth!', 'Susan!', 'Jessica!', 'Sarah!', 'Karen!',
-];
+].sort(() => Math.random() - 0.5);
+
+const NAMES = ['friend!', 'stranger!', 'neighbor!', ...NAMES_REST];
 
 const FULL_TEXT = `I am a full stack engineer at Cisco Systems. Currently [building] AI-powered projects and having a lot of fun doing it.
 
@@ -129,6 +131,7 @@ export default function AboutSection({ id, scrollUp }) {
   return (
     <section className="about-section" id={id} ref={sectionRef}>
       <SlimeHint onClick={scrollUp} />
+      <AppGrid />
       <div className="about-inner">
         <img src="/oscar.jpg" alt="Oscar Khowong" className="about-photo" />
         <div className="about-text">
