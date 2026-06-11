@@ -3,9 +3,6 @@
 Personal website for Oscar Khowong — live at [oscarkhowong.com](https://oscarkhowong.com).
 
 ---
-
-## For Recruiters / Non-Technical Overview
-
 This is a fully custom-built personal website with two main sections:
 
 **Home** — An interactive tennis pong game playable in the browser. You control a player using keyboard (desktop) or touch/flick gestures (mobile). The game supports 4 visual court themes (Roland Garros clay, Wimbledon grass, US Open hard, Laver Cup). First to 7 points wins. Everything — the court, players, ball physics, and sound effects — was built from scratch using the HTML5 Canvas API and Web Audio API, with no game engine or external libraries.
