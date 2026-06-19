@@ -4,7 +4,6 @@ import ScoreBoard from '../components/ScoreBoard';
 import ThemeSwitcher, { THEMES } from '../components/ThemeSwitcher';
 import AboutSection from '../components/AboutSection';
 import SmokeHint from '../components/SmokeHint';
-import SlimeHint from '../components/SlimeHint';
 
 const isMobile = window.matchMedia('(pointer: coarse)').matches;
 
@@ -18,12 +17,12 @@ export default function Home() {
   return (
     <>
       <section className="home">
-        <h1 className="hero-name">Oscar Khowong</h1>
+        <h1 className="hero-name" onClick={scrollToAbout} title="Learn more about me">Oscar Khowong</h1>
 
         <ScoreBoard scoreYou={scores.you} scoreCpu={scores.cpu} />
 
         <div className="court-wrapper">
-          <TennisGame onScoreChange={setScores} theme={THEMES[themeId]} />
+          <TennisGame onScoreChange={setScores} theme={THEMES[themeId]} muted />
         </div>
 
         <p className="controls">

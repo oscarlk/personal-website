@@ -7,7 +7,7 @@ This is a fully custom-built personal website with two main sections:
 
 **Home** — An interactive tennis pong game playable in the browser. You control a player using keyboard (desktop) or touch/flick gestures (mobile). The game supports 4 visual court themes (Roland Garros clay, Wimbledon grass, US Open hard, Laver Cup). First to 7 points wins. Everything — the court, players, ball physics, and sound effects — was built from scratch using the HTML5 Canvas API and Web Audio API, with no game engine or external libraries.
 
-**About** — A personal bio section with a typewriter animation that cycles through names with realistic human-style typos and backspacing. Features draggable iOS-style app icons that link to projects. The whole site has a retro grain texture and hand-drawn slime/smoke scroll hints between sections.
+**About** — A personal bio section with a typewriter animation that cycles through names with realistic human-style typos and backspacing. Features draggable iOS-style app icons (Safeway deals tracker, Glance, Pokémon GO scanner) that link to live projects. The whole site has a retro grain texture and hand-drawn slime/smoke scroll hints between sections. The tennis game includes a mute toggle for the grunt sound effects.
 
 **Tech used:** React, Vite, HTML5 Canvas, Web Audio API, SVG — deployed on Vercel with a custom domain via Porkbun DNS.
 

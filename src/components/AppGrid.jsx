@@ -61,12 +61,12 @@ const isMobile = window.matchMedia('(pointer: coarse)').matches;
 // x/y are percentages of the overlay container
 const DEFAULT_APPS = isMobile ? [
   { id: 'safeway', label: 'Safeway', href: 'https://github.com/oscarlk', x: 8,  y: 76 },
-  { id: 'venmo',   label: 'Venmo',   href: 'https://github.com/oscarlk', x: 38, y: 84 },
-  { id: 'pokemon', label: 'Pokémon GO', href: 'https://github.com/oscarlk', x: 65, y: 80 },
+  { id: 'venmo',   label: 'Glance',     href: 'https://glance19z.vercel.app', x: 38, y: 84 },
+  { id: 'pokemon', label: 'Pokémon GO', href: 'https://pokemon-scanner-sooty.vercel.app/', x: 65, y: 80 },
 ] : [
   { id: 'safeway', label: 'Safeway',    href: 'https://github.com/oscarlk', x: 58, y: 22 },
-  { id: 'venmo',   label: 'Venmo',      href: 'https://github.com/oscarlk', x: 72, y: 38 },
-  { id: 'pokemon', label: 'Pokémon GO', href: 'https://github.com/oscarlk', x: 84, y: 30 },
+  { id: 'venmo',   label: 'Glance',     href: 'https://glance19z.vercel.app', x: 72, y: 38 },
+  { id: 'pokemon', label: 'Pokémon GO', href: 'https://pokemon-scanner-sooty.vercel.app/', x: 84, y: 30 },
 ];
 
 export default function AppGrid() {

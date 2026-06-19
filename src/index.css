@@ -299,6 +299,28 @@ body {
   margin-bottom: 8px;
   color: #f5c842;
   text-shadow: 3px 3px 0 #c4992e;
+  cursor: pointer;
+}
+
+@media (max-width: 480px) {
+  .hero-name {
+    letter-spacing: 0.04em;
+    text-shadow: 2px 2px 0 #c4992e;
+  }
+}
+
+.mute-btn {
+  position: absolute;
+  bottom: 6px;
+  right: 6px;
+  background: rgba(0,0,0,0.45);
+  border: none;
+  border-radius: 6px;
+  padding: 4px 7px;
+  font-size: 0.95rem;
+  cursor: pointer;
+  line-height: 1;
+  z-index: 10;
 }
 
 .hero-sub {

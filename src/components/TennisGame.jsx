@@ -222,10 +222,13 @@ function drawWinScreen(ctx, winner, scoreYou, scoreCpu, isMobile) {
   ctx.textAlign = 'left';
 }
 
-export default function TennisGame({ onScoreChange, theme }) {
+export default function TennisGame({ onScoreChange, theme, muted: initialMuted = false }) {
   const canvasRef = useRef(null);
   const themeRef  = useRef(theme);
   useEffect(() => { themeRef.current = theme; }, [theme]);
+  const [muted, setMuted] = useState(initialMuted);
+  const mutedRef = useRef(initialMuted);
+  useEffect(() => { mutedRef.current = muted; }, [muted]);
   const stateRef  = useRef({
     ball: { x: W / 2, y: H / 2, vx: 1.4, vy: 0.9 },
     you:  { y: H / 2 - PADDLE_H / 2 },
@@ -308,7 +311,7 @@ export default function TennisGame({ onScoreChange, theme }) {
             s.ball.x - BALL_SIZE / 2 >= PLAYER_X &&
             s.ball.y >= youTop && s.ball.y <= youBot) {
           s.ball.x = PLAYER_X + PADDLE_W + BALL_SIZE / 2;
-          playGrunt();
+          if (!mutedRef.current) playGrunt();
           if (s.isMobile && s.flick) {
             s.ball.vx = Math.abs(s.flick.vx); // always fires toward CPU
             s.ball.vy = s.flick.vy;
@@ -324,7 +327,7 @@ export default function TennisGame({ onScoreChange, theme }) {
         if (s.ball.x + BALL_SIZE / 2 >= CPU_X &&
             s.ball.x + BALL_SIZE / 2 <= CPU_X + PADDLE_W &&
             s.ball.y >= cpuTop && s.ball.y <= cpuBot) {
-          playGrunt();
+          if (!mutedRef.current) playGrunt();
           s.ball.x = CPU_X - BALL_SIZE / 2;
           const rel = (s.ball.y - (cpuTop + PADDLE_H / 2)) / (PADDLE_H / 2);
           s.ball.vx = Math.max(-Math.abs(s.ball.vx) * 1.05, -4);
@@ -454,11 +457,20 @@ export default function TennisGame({ onScoreChange, theme }) {
   }, []);
 
   return (
-    <canvas
-      ref={canvasRef}
-      width={W}
-      height={H}
-      style={{ width: '100%', height: '100%', imageRendering: 'pixelated', display: 'block' }}
-    />
+    <div style={{ position: 'relative', width: '100%', height: '100%' }}>
+      <canvas
+        ref={canvasRef}
+        width={W}
+        height={H}
+        style={{ width: '100%', height: '100%', imageRendering: 'pixelated', display: 'block' }}
+      />
+      <button
+        className="mute-btn"
+        onClick={() => setMuted(m => !m)}
+        title={muted ? 'Unmute' : 'Mute'}
+      >
+        {muted ? '🔇' : '🔊'}
+      </button>
+    </div>
   );
 }
